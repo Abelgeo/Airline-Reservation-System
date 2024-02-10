@@ -1,0 +1,39 @@
+html{
+    position: relative;
+    min-height: 100%;
+}
+
+/*BACKGROUND IMAGE*/
+
+body{
+    background: url() no-repeat center center;
+    background-attachment: fixed;
+    background-size: cover;
+    font-family: 'Arvo', serif;
+}
+.carouselsize{
+  height: 100vh;
+}
+
+
+/*Buttom*/
+.adminbtn{
+  margin-top: 50px;
+}
+.signup{
+    margin-top: 50px;
+    margin-right: 10px;
+}
+
+/*Close button*/
+.btn-close{
+    background-color: transparent;
+    border: 0;
+}
+.buttons{
+    margin-bottom: 20px;
+}
+
+    
+    
+
