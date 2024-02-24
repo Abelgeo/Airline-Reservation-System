@@ -12,7 +12,7 @@ include('connection.php');
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Airline Ticket Reservation</title>
+  <title>MaanaFly</title>
 
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="styling.css" rel="stylesheet">
@@ -154,7 +154,7 @@ hr {
 
     <nav class="navbar navbar-expand-lg fixed-top">
     <div class="container-fluid">
-        <a class="navbar-brand text-white" href="#">Airline Ticket Reservation</a>
+        <a class="navbar-brand text-white" href="#">MaanaFly</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarcollapse" aria-controls="navbarcollapse" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -164,9 +164,7 @@ hr {
                 <li class="nav-item">
                     <a class="nav-link active text-white" aria-current="page" href="#">Home</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link text-white" href="2.feedbackfront.php">Feedback</a>
-                </li>
+                
                 <li class="nav-item">
                     <a class="nav-link text-white" href="#" tabindex="-1" aria-disabled="true">About</a>
                 </li>

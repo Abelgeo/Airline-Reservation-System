@@ -74,7 +74,7 @@ $("#forgotpasswordform").submit(function(event){
     //send them to forgotpassword.php using AJAX
     //$.post({}).done(when success).fail();
     $.ajax({
-        url: "9.forgotpassword.php",
+        url: "7.forgotpassword.php",
         type: "POST",
         data: datatopost,
         //AJAX Call successful: show error or success message
