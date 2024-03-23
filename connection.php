@@ -23,12 +23,12 @@ $sql = "CREATE TABLE IF NOT EXISTS `users` (
    }
 //create tables if they haven't been yet
 $sql = "CREATE TABLE IF NOT EXISTS `admin` (
-    `admin_id` int(11) NOT NULL AUTO_INCREMENT,
-    `admin_username` varchar(30) NOT NULL,
-    `admin_email` varchar(50) NOT NULL,
-    `admin_password` varchar(64) NOT NULL,
-    PRIMARY KEY (`admin_id`),
-    UNIQUE KEY `admin_id` (`admin_id`)
+    `id` int(11) NOT NULL AUTO_INCREMENT,
+    `username` varchar(30) NOT NULL,
+    `email` varchar(50) NOT NULL,
+    `password` varchar(64) NOT NULL,
+    PRIMARY KEY (`id`),
+    UNIQUE KEY `id` (`id`)
    ); ";
    $result = mysqli_query($link, $sql);
    if(!$result){
@@ -136,34 +136,11 @@ $sql = "CREATE TABLE IF NOT EXISTS `airline` (
        echo mysqli_error($link);
        exit;
    }
-   $sql = "CREATE TABLE IF NOT EXISTS `flight` (
-    `flight_id` int(11)NOT NULL AUTO_INCREMENT,
-    `admin_id` int(11)UNIQUE NOT NULL,
-    `arrivale`DATETIME NOT NULL,
-    `departure`DATETIME NOT NULL,
-    `Destination` varchar(20) NOT NULL,
-    `source` varchar(20) NOT NULL,
-    `airline` varchar(20) NOT NULL,
-    `Seats` varchar(110) NOT NULL,
-    `duration` varchar(20) NOT NULL,
-    `Price` int(11) NOT NULL,
-    `status` varchar(6) NOT NULL,
-    `issue` varchar(50) NOT NULL,
-    `last_seat` varchar(5) NOT NULL,
-    `bus_seats` int(11) NOT NULL,
-    `last_bus_seat` varchar(5) NOT NULL,
-    PRIMARY KEY (`flight_id`)
-   );";
-   $result = mysqli_query($link, $sql);
-   if(!$result){
-       echo '<div class="alert alert-danger">Error running the query!</div>';
-       echo mysqli_error($link);
-       exit;
-   }
+
    $sql = "CREATE TABLE IF NOT EXISTS `passenger_profile` (
     `passenger_id` int(11)NOT NULL AUTO_INCREMENT,
-    `user_id` int(11)UNIQUE NOT NULL,
-    `flight_id` int(11) UNIQUE NOT NULL,
+    `user_id` int(11) NOT NULL,
+    `flight_id` int(11) NOT NULL,
     `mobile` varchar(110) NOT NULL,
     `dob`DATETIME NOT NULL,
     `f_name` varchar(20),
@@ -179,7 +156,7 @@ $sql = "CREATE TABLE IF NOT EXISTS `airline` (
    }
    $sql = "CREATE TABLE IF NOT EXISTS `payment` (
     `card_no` varchar(16)NOT NULL,
-    `user_id` int(11)UNIQUE NOT NULL,
+    `user_id` int(11)NOT NULL,
     `flight_id` int(11) UNIQUE NOT NULL,
     `expire_date` varchar(16),
     `amount` int(11) NOT NULL,
@@ -193,13 +170,37 @@ $sql = "CREATE TABLE IF NOT EXISTS `airline` (
    }
    $sql = "CREATE TABLE IF NOT EXISTS `ticket` (
     `ticket_id` int(11)NOT NULL AUTO_INCREMENT,
-    `passenger_id` int(11) UNIQUE NOT NULL,
-    `flight_id` int(11) UNIQUE NOT NULL,
-    `user_id` int(11)UNIQUE NOT NULL,
+    `passenger_id` int(11)NOT NULL,
+    `flight_id` int(11)NOT NULL,
+    `user_id` int(11)NOT NULL,
     `seat_no` varchar(10) NOT NULL,
     `cost` int(11) NOT NULL,
     `class` varchar(3) NOT NULL,
     PRIMARY KEY (`ticket_id`)
+   );";
+   $result = mysqli_query($link, $sql);
+   if(!$result){
+       echo '<div class="alert alert-danger">Error running the query!</div>';
+       echo mysqli_error($link);
+       exit;
+   }
+   $sql = "CREATE TABLE IF NOT EXISTS `flight` (
+    `flight_id` int(11)NOT NULL AUTO_INCREMENT,
+    `id` int(11) NOT NULL,
+    `arrivale`DATETIME NOT NULL,
+    `departure`DATETIME NOT NULL,
+    `Destination` varchar(20) NOT NULL,
+    `source` varchar(20) NOT NULL,
+    `airline` varchar(20) NOT NULL,
+    `Seats` varchar(110) NOT NULL,
+    `duration` varchar(20) NOT NULL,
+    `Price` int(11) NOT NULL,
+    `status` varchar(6) NOT NULL,
+    `issue` varchar(50) NOT NULL,
+    `last_seat` varchar(5) NOT NULL,
+    `bus_seats` int(11) NOT NULL,
+    `last_bus_seat` varchar(5) NOT NULL,
+    PRIMARY KEY (`flight_id`)
    );";
    $result = mysqli_query($link, $sql);
    if(!$result){

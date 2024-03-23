@@ -90,3 +90,37 @@ $("#forgotpasswordform").submit(function(event){
     
 });  
 console.log("After form submission");
+//Ajax Call for the admin form
+//Once the form is submitted
+console.log("before admin form submission");
+$("#adminform").submit(function(event){
+    //prevent default php processing
+    event.preventDefault();
+    
+    //collect user inputs
+    var datatopost = $(this).serializeArray();
+    //console.log(datatopost);
+    //send them to login.php using AJAX
+    //$.post({}).done(when success).fail();
+    $.ajax({
+        url: "9.adminback.php",
+        type: "POST",
+        data: datatopost,
+        //AJAX Call successful: show error or success message
+        success: function(data){
+            if(data == "success"){
+                window.location = "9.adminhome.php";
+            }else{
+                $('#adminmessage').html(data);
+            }
+        },
+        //AJAX Call fails: show Ajax Call error
+        error: function(){
+            $("#adminmessage").html("<div class='alert alert-danger'>There was an error with the Ajax Call. Please try again later.</div>");
+        }
+    });
+    
+    
+});  
+
+console.log("After admin form submission");

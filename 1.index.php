@@ -3,9 +3,9 @@ session_start();
 include('connection.php');
 
 //logout
-//include('logout.php');
+include('logout.php');
 //remember me
-//include('8.rememberme.php');
+include('8.rememberme.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -28,6 +28,9 @@ include('connection.php');
         .carouselsize{
   height: 100vh;
 }
+#admin{
+  color: white;
+}
         .adminbtn{
             margin-left: 10px;
             margin-top: 50px;
@@ -44,6 +47,7 @@ include('connection.php');
           color: white;
         }
         .signup{
+        
           color: white;
           margin-bottom: 200px;
           background-color: rgb(5,85,141);
@@ -104,6 +108,7 @@ hr {
     /* Specific styles for each modal */
     #loginmodal .modal-title,
     #signupmodal .modal-title,
+    #adminmodal .modal-title,
     #forgotpasswordmodal .modal-title {
         color: white; /* Change text color for better visibility */
     }
@@ -147,7 +152,7 @@ hr {
 </head>
 <body>
 
-<!--cntrl space for classes or >cache css-->
+
 
 
     <!--navbar-->
@@ -172,7 +177,7 @@ hr {
 
             <ul class="navbar-nav navbar-right">
                 <li class="nav-item">
-                <button type="button" class="btn admin" data-target="#signupmodal" data-toggle="modal" id="admin">Admin</button>
+                <button type="button" class="btn admin" data-target="#adminmodal" data-toggle="modal" id="admin">Admin</button>
                     <!--<a class="nav-link text-white login" type="button" href="#loginmodal" data-toggle="modal">Login</a>-->
                 </li>
             </ul>
@@ -311,6 +316,61 @@ hr {
 
 
 </div>
+
+<!--admin form-->
+
+
+<form method="post" id="adminform">
+        
+        
+        <div class="modal fade" id="adminmodal" tabindex="-1" aria-labelledby="hid" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="hid">ADMIN LOGIN</h4>
+        <button class="btn-close" data-dismiss="modal"></button>
+          <!--<button class="close" data-dismiss="modal">&times;</button>
+-->
+
+      </div>
+      <div class="modal-body">
+          
+          <!--admin message from php file-->
+          <div id="adminmessage"></div>
+          
+          
+    <div class="form-group mb-3">
+        <label for="adminusername" class="visually-hidden">Username</label>
+        <input class="form-control" type="text" name="adminusername" placeholder="Username" maxlength="30" id="adminusername">
+    </div>
+
+    <div class="form-group mb-3">
+        <label for="adminemail" class="visually-hidden">Email</label>
+        <input class="form-control" type="email" name="adminemail" placeholder="Email Address" maxlength="50" id="adminemail">
+    </div>
+
+    <div class="form-group mb-3">
+        <label for="adminpassword" class="visually-hidden">Password</label>
+        <input class="form-control" type="password" name="adminpassword" placeholder="Password" maxlength="30" id="adminpassword">
+    </div>
+</div>
+
+        
+      <div class="modal-footer">
+          <input class="btn green" name="adminlogin" type="submit" value="Login">
+<!--<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>-->
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+
+        
+      </div>
+    </div>
+  </div>
+</div>
+        
+    
+    </form>
+
+
     <!--LOGIN Form-->
     
     <form method="post" id="loginform">
